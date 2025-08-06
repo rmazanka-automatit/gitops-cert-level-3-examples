@@ -20,7 +20,7 @@ spec:
       project: default
 
       sources:
-        - repoURL: https://kostis-codefresh.github.io/multi-sources-example
+        - repoURL: https://rmazanka-automatit.github.io/multi-sources-example
           chart: my-chart
           targetRevision: '{{.chart}}'
           helm:
