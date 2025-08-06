@@ -12,6 +12,14 @@ spec:
       - env: qa
         region: us  
         type: non-prod   
+        version: qa
+      - env: integration-gpu
+        region: us
+        type: non-prod
+        version: qa
+      - env: integration-non-gpu
+        region: us
+        type: non-prod
         version: qa     
       - env: staging-asia
         region: asia
@@ -51,6 +59,9 @@ spec:
             - $values/helm-multi-source/my-values/env-type/{{.type}}-values.yaml  
             - $values/helm-multi-source/my-values/regions/{{.region}}-values.yaml                
             - $values/helm-multi-source/my-values/envs/{{.env}}-values.yaml
+#            {{- if or (eq .env "integration-gpu") (eq .env "integration-gpu") }}
+#            - $values/helm-multi-source/my-values/extra-values.yaml
+#            {{- end }}
         - repoURL: 'https://github.com/codefresh-contrib/gitops-cert-level-3-examples.git'
           targetRevision: HEAD
           ref: values
